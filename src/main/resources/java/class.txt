@@ -1,0 +1,8 @@
+package es.pierous.generator.model;
+
+@Entity
+public class ${name} {
+
+${attributes}
+
+}

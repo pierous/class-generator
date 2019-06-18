@@ -1,0 +1,1 @@
+@Contexto(name = CONTEXTO, field="XGGIN057002")
