@@ -11,7 +11,6 @@ public class AttributeDeclarationParserImpl extends GenericParserImpl<Attribute>
 	private static String TYPE = "${type}";
 	private static String NAME = "${name}";
 	
-	@Override
 	public String parse(Attribute attribute) {
 		String template = FileUtils.readFile(TEMPLATE);
 		

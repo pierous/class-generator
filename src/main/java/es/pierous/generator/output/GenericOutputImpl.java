@@ -6,7 +6,6 @@ import es.pierous.generator.utils.FileUtils;
 
 public abstract class GenericOutputImpl implements GenericOutput {
 	
-	@Override
 	public void createFile(String url, Table table, GenericParser<Table> parser) {
 
 		String content = parser.parse(table);

@@ -19,7 +19,6 @@ public class AttributeJavaParserImpl extends GenericParserImpl<Attribute> {
 		parsers.add(new AttributeDeclarationParserImpl());
 	}
 
-	@Override
 	public String parse(Attribute attribute) {
 		String result = "";
 		

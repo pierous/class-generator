@@ -15,7 +15,6 @@ public class JavaClassParserImpl extends GenericParserImpl<Table> {
 	private static String NAME = "${name}";
 	private static String ATTRIBUTES = "${attributes}";
 
-	@Override
 	public String parse(Table table) {
 		String template = FileUtils.readFile(TEMPLATE);
 		
