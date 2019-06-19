@@ -1,12 +1,17 @@
 package es.pierous.generator.model;
 
+import es.pierous.generator.enumerators.JavaTypeEnum;
+import es.pierous.generator.enumerators.SQLServerTypeEnum;
+
 public class Attribute extends Parseable {
 
 	// ATTRIBUTES
 	private String column;
 	private String name;
-	private String type;
+	private SQLServerTypeEnum sqlServerType;
 	private Integer size;
+	private Boolean isId;
+	private Boolean admitNull;
 	
 	// GETTERS & SETTERS
 	
@@ -26,12 +31,12 @@ public class Attribute extends Parseable {
 		this.name = name;
 	}
 	
-	public String getType() {
-		return type;
+	public SQLServerTypeEnum getSqlServerType() {
+		return sqlServerType;
 	}
 	
-	public void setType(String type) {
-		this.type = type;
+	public void setSqlServerType(SQLServerTypeEnum sqlServerType) {
+		this.sqlServerType = sqlServerType;
 	}
 	
 	public Integer getSize() {
@@ -40,6 +45,32 @@ public class Attribute extends Parseable {
 	
 	public void setSize(Integer size) {
 		this.size = size;
+	}
+
+	public Boolean getIsId() {
+		return isId;
+	}
+
+	public void setIsId(Boolean isId) {
+		this.isId = isId;
+	}
+
+	public Boolean getAdmitNull() {
+		return admitNull;
+	}
+
+	public void setAdmitNull(Boolean admitNull) {
+		this.admitNull = admitNull;
+	}
+	
+	// PUBLIC METHODS
+	
+	public String getSqlServerTypeValue() {
+		return this.sqlServerType.getValue();
+	}
+	
+	public String getJavaTypeValue() {
+		return JavaTypeEnum.getEnumBySQL(this.sqlServerType).getValue();
 	}
 	
 }

@@ -5,16 +5,24 @@ import es.pierous.generator.parser.GenericParserImpl;
 import es.pierous.generator.utils.FileUtils;
 
 public class AttributeDeclarationParserImpl extends GenericParserImpl<Attribute> {
-	
+
 	private static String TEMPLATE = "java/entity/attribute/declaration.txt";
 	
 	private static String TYPE = "${type}";
 	private static String NAME = "${name}";
 	
-	public String parse(Attribute attribute) {
+	// CONSTRUCTOR
+	
+	public AttributeDeclarationParserImpl(Attribute item) {
+		super(item);
+	}
+	
+	// IMPLEMENTED METHODS
+	
+	public String parse() {
 		String template = FileUtils.readFile(TEMPLATE);
 		
-		return template.replace(TYPE, attribute.getType()).replace(NAME, attribute.getName()) + NL;
+		return template.replace(TYPE, this.item.getJavaTypeValue()).replace(NAME, this.item.getName()) + NL;
 	}
 
 }

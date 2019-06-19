@@ -1,7 +1,19 @@
 package es.pierous.generator.model;
 
+import javax.persistence.*;
+
+import es.caixagalicia.ifrt.persistencia.eccv02.CEcc;
+
+/**
+ * The persistent class for the ${name}C database table.
+ */
 @Entity
-public class ${name} {
+@Table(name = "${table}")
+public class ${name}C extends CEcc {
+
+// CONTEXTO
+
+// ATRIBUTOS
 
 ${attributes}
 

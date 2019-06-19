@@ -1,0 +1,13 @@
+package es.pierous.generator.persistence.dao;
+
+import java.util.List;
+
+import es.pierous.generator.common.persistence.GenericDao;
+import es.pierous.generator.model.entity.KE_ClienteC;
+
+/**
+ * The Interface KE_ClienteDao.
+ */
+public interface KE_ClienteDao extends GenericDao<KE_ClienteC, Integer> {
+
+}

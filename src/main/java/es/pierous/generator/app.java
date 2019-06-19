@@ -6,6 +6,8 @@ import es.pierous.generator.model.Table;
 import es.pierous.generator.output.GenericOutput;
 import es.pierous.generator.output.java.JavaOutputImpl;
 import es.pierous.generator.parser.java.JavaClassParserImpl;
+import es.pierous.generator.parser.java.JavaDaoHibernateParserImpl;
+import es.pierous.generator.parser.java.JavaDaoInterfaceParserImpl;
 
 public class app {
 
@@ -16,11 +18,15 @@ public class app {
 			System.out.println(string);
 		}
 		
-		Table table = input.toTable("C:/Users/piero/Desktop/pruebas/Prueba.xlsx");
+		Table table = input.toTable("C:/Users/dulloa/Desktop/Prueba.xlsx");
 		
 		GenericOutput  output = new JavaOutputImpl();
 		
-		output.createFile("output/java/prueba.txt", table, new JavaClassParserImpl());
+		output.createFile("output/java/class.txt", table, new JavaClassParserImpl(table));
+		
+		output.createFile("output/java/dao.txt", table, new JavaDaoInterfaceParserImpl(table));
+		
+		output.createFile("output/java/daoHibernate.txt", table, new JavaDaoHibernateParserImpl(table));
 	}
 
 }

@@ -1,0 +1,20 @@
+package es.pierous.generator.persistence.dao;
+
+import es.pierous.generator.common.persistence.GenericDaoHibernate;
+import es.pierous.generator.model.entity.KE_ClienteC;
+
+/**
+ * The Class KE_ClienteDaoHibernate.
+ */
+public class KE_ClienteDaoHibernate extends GenericDaoHibernate<KE_ClienteC, Integer> implements KE_ClienteDao {
+	
+	// CONSTRUCTOR
+	
+	/**
+	 * Instantiates a new KE_Cliente dao hibernate.
+	 */
+	public KE_ClienteDaoHibernate() {
+		super();
+	}
+
+}

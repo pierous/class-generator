@@ -10,6 +10,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import es.pierous.generator.enumerators.SQLServerTypeEnum;
 import es.pierous.generator.input.GenericInput;
 import es.pierous.generator.model.Attribute;
 import es.pierous.generator.model.Table;
@@ -22,6 +23,8 @@ public class ExcelInputImpl implements GenericInput {
 	public static Integer ATTR_JAVA_POS = 4;
 	public static Integer TYPE_BD_POS = 7;
 	public static Integer SIZE_BD_POS = 8;
+	public static Integer NULL_BD_POS = 13;
+	public static Integer ID_BD_POS = 15;
 	
 	// PUBLIC METHODS
 	
@@ -83,12 +86,17 @@ public class ExcelInputImpl implements GenericInput {
 	    String nombreJava = (row.getCell(ATTR_JAVA_POS) != null) ? row.getCell(ATTR_JAVA_POS).getStringCellValue() : null;
 	    Integer size = Double.valueOf(row.getCell(SIZE_BD_POS).getNumericCellValue()).intValue();
 	    
+	    Boolean id = Double.valueOf(row.getCell(ID_BD_POS).getNumericCellValue()).intValue() == 1;
+	    Boolean nulls = Double.valueOf(row.getCell(NULL_BD_POS).getNumericCellValue()).intValue() == 1;
+	    
 	    Attribute attr = new Attribute();
 	    
 	    attr.setColumn(nombreBD);
 	    attr.setName(nombreJava);
-	    attr.setType(tipo);
+	    attr.setSqlServerType(SQLServerTypeEnum.getEnum(tipo));
 	    attr.setSize(size);
+	    attr.setIsId(id);
+	    attr.setAdmitNull(nulls);
 		
 		return attr;
 	}

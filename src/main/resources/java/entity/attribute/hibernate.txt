@@ -1,1 +1,1 @@
-@Column(name="${name}", length=${size}, nullable=false)
+@Column(name="${name}", length=${size}, nullable=${nullable})

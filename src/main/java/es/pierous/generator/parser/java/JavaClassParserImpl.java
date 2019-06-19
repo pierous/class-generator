@@ -9,28 +9,41 @@ import es.pierous.generator.parser.java.entity.AttributeJavaParserImpl;
 import es.pierous.generator.utils.FileUtils;
 
 public class JavaClassParserImpl extends GenericParserImpl<Table> {
-	
+
 	private static String TEMPLATE = "java/class.txt";
 	
+	private static String TABLE = "${table}";
 	private static String NAME = "${name}";
 	private static String ATTRIBUTES = "${attributes}";
+	
+	// CONSTRUCTOR
+	
+	public JavaClassParserImpl(Table item) {
+		super(item);
+	}
 
-	public String parse(Table table) {
+	// IMPLEMENTED METHODS
+	
+	public String parse() {
 		String template = FileUtils.readFile(TEMPLATE);
 		
-		String attributes = this.parseAttributes(table.getAttributes());
+		String attributes = this.parseAttributes(this.item.getAttributes());
 		
-		String result = template.replace(NAME, table.getName()).replace(ATTRIBUTES, attributes);
+		String result = template.replace(TABLE, this.item.getName())
+				.replace(NAME, this.item.getName())
+				.replace(ATTRIBUTES, attributes);
 		
 		return result;
 	}
 	
+	// PRIVATE METHODS
+	
 	private String parseAttributes(List<Attribute> attributes) {
-		AttributeJavaParserImpl attrParser = new AttributeJavaParserImpl();
 		
 		String result = "";
 		for (Attribute attribute : attributes) {
-			result += attrParser.parse(attribute) + NL;
+			AttributeJavaParserImpl attrParser = new AttributeJavaParserImpl(attribute);
+			result += attrParser.parse() + NL;
 		}
 		
 		return result;

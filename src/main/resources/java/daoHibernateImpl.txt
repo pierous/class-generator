@@ -1,0 +1,20 @@
+package es.pierous.generator.persistence.dao;
+
+import es.pierous.generator.common.persistence.GenericDaoHibernate;
+import es.pierous.generator.model.entity.${entity}C;
+
+/**
+ * The Class ${name}DaoHibernate.
+ */
+public class ${name}DaoHibernate extends GenericDaoHibernate<${entity}C, Integer> implements ${name}Dao {
+	
+	// CONSTRUCTOR
+	
+	/**
+	 * Instantiates a new ${name} dao hibernate.
+	 */
+	public ${name}DaoHibernate() {
+		super();
+	}
+
+}
