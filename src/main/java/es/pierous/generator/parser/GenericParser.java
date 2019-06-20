@@ -4,6 +4,8 @@ import es.pierous.generator.model.Parseable;
 
 public interface GenericParser<E extends Parseable> {
 	
+	public String getURI();
+	
 	public String parse();
 
 }

@@ -20,6 +20,10 @@ public class HibernateAnnotationParserImpl extends GenericParserImpl<Attribute> 
 
 	// IMPLEMENTED METHODS
 	
+	public String getURI() {
+		return null;
+	}
+	
 	public String parse() {
 		String template = FileUtils.readFile(TEMPLATE);
 		String nullable = (this.item.getAdmitNull())? "true" : "false";

@@ -8,6 +8,7 @@ public class JavaDaoInterfaceParserImpl extends GenericParserImpl<Table> {
 	
 	private static String TEMPLATE = "java/daoInterface.txt";
 	
+	private static String PACKAGE = "${package}";
 	private static String NAME = "${name}";
 	private static String ENTITY = "${entity}";
 	
@@ -18,11 +19,17 @@ public class JavaDaoInterfaceParserImpl extends GenericParserImpl<Table> {
 	}
 
 	// IMPLEMENTED METHODS
+	
+	public String getURI() {
+		return "/persistence/dao/" + this.item.getName() + "Dao.java";
+	}
 
 	public String parse() {
 		String template = FileUtils.readFile(TEMPLATE);
 		
-		String result = template.replace(NAME, this.item.getName())
+		String result = template
+				.replace(PACKAGE, item.getPack())
+				.replace(NAME, this.item.getName())
 				.replace(ENTITY, this.item.getName());
 		
 		return result;

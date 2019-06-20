@@ -1,9 +1,9 @@
-package es.pierous.generator.persistence.dao;
+package ${package}.persistence.dao;
 
 import java.util.List;
 
-import es.pierous.generator.common.persistence.GenericDao;
-import es.pierous.generator.model.entity.${entity}C;
+import ${package}.common.persistence.GenericDao;
+import ${package}.model.entity.${entity}C;
 
 /**
  * The Interface ${name}Dao.

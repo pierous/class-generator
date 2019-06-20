@@ -5,6 +5,6 @@ import es.pierous.generator.parser.GenericParser;
 
 public interface GenericOutput {
 	
-	public void createFile(String url, Table table, GenericParser<Table> parser);
+	public void createFile(Table table, GenericParser<Table> parser);
 
 }

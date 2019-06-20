@@ -4,9 +4,9 @@ import es.pierous.generator.model.Table;
 import es.pierous.generator.parser.GenericParserImpl;
 import es.pierous.generator.utils.FileUtils;
 
-public class JavaDaoHibernateParserImpl extends GenericParserImpl<Table> {
+public class JavaServiceInterfaceParsetImpl extends GenericParserImpl<Table> {
 	
-	private static String TEMPLATE = "java/daoHibernateImpl.txt";
+	private static String TEMPLATE = "java/service.txt";
 	
 	private static String PACKAGE = "${package}";
 	private static String NAME = "${name}";
@@ -14,16 +14,16 @@ public class JavaDaoHibernateParserImpl extends GenericParserImpl<Table> {
 	
 	// CONSTRUCTOR
 	
-	public JavaDaoHibernateParserImpl(Table item) {
+	public JavaServiceInterfaceParsetImpl(Table item) {
 		super(item);
 	}
-
+	
 	// IMPLEMENTED METHODS
-	
+
 	public String getURI() {
-		return "/persistence/dao/" + this.item.getName() + "DaoHibernate.java";
+		return "/business/service/" + this.item.getName() + "Service.java";
 	}
-	
+
 	public String parse() {
 		String template = FileUtils.readFile(TEMPLATE);
 		

@@ -19,6 +19,10 @@ public class AttributeDeclarationParserImpl extends GenericParserImpl<Attribute>
 	
 	// IMPLEMENTED METHODS
 	
+	public String getURI() {
+		return null;
+	}
+	
 	public String parse() {
 		String template = FileUtils.readFile(TEMPLATE);
 		

@@ -8,6 +8,8 @@ import es.pierous.generator.output.java.JavaOutputImpl;
 import es.pierous.generator.parser.java.JavaClassParserImpl;
 import es.pierous.generator.parser.java.JavaDaoHibernateParserImpl;
 import es.pierous.generator.parser.java.JavaDaoInterfaceParserImpl;
+import es.pierous.generator.parser.java.JavaServiceImplementationParsetImpl;
+import es.pierous.generator.parser.java.JavaServiceInterfaceParsetImpl;
 
 public class app {
 
@@ -20,13 +22,19 @@ public class app {
 		
 		Table table = input.toTable("C:/Users/dulloa/Desktop/Prueba.xlsx");
 		
-		GenericOutput  output = new JavaOutputImpl();
+		table.setPack("cag.metro.xggi.keops");
 		
-		output.createFile("output/java/class.txt", table, new JavaClassParserImpl(table));
+		GenericOutput  output = new JavaOutputImpl("output");
 		
-		output.createFile("output/java/dao.txt", table, new JavaDaoInterfaceParserImpl(table));
+		output.createFile(table, new JavaClassParserImpl(table));
 		
-		output.createFile("output/java/daoHibernate.txt", table, new JavaDaoHibernateParserImpl(table));
+		output.createFile(table, new JavaDaoInterfaceParserImpl(table));
+		
+		output.createFile(table, new JavaDaoHibernateParserImpl(table));
+		
+		output.createFile(table, new JavaServiceInterfaceParsetImpl(table));
+		
+		output.createFile(table, new JavaServiceImplementationParsetImpl(table));
 	}
 
 }

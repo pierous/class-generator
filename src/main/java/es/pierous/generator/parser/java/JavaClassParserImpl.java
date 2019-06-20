@@ -12,6 +12,7 @@ public class JavaClassParserImpl extends GenericParserImpl<Table> {
 
 	private static String TEMPLATE = "java/class.txt";
 	
+	private static String PACKAGE = "${package}";
 	private static String TABLE = "${table}";
 	private static String NAME = "${name}";
 	private static String ATTRIBUTES = "${attributes}";
@@ -24,12 +25,18 @@ public class JavaClassParserImpl extends GenericParserImpl<Table> {
 
 	// IMPLEMENTED METHODS
 	
+	public String getURI() {
+		return "/model/entity/" + this.item.getName() + "C.java";
+	}
+	
 	public String parse() {
 		String template = FileUtils.readFile(TEMPLATE);
 		
 		String attributes = this.parseAttributes(this.item.getAttributes());
 		
-		String result = template.replace(TABLE, this.item.getName())
+		String result = template
+				.replace(PACKAGE, item.getPack())
+				.replace(TABLE, this.item.getName())
 				.replace(NAME, this.item.getName())
 				.replace(ATTRIBUTES, attributes);
 		

@@ -16,6 +16,10 @@ public class HibernateAnnotationIdParserImpl extends GenericParserImpl<Attribute
 
 	// IMPLEMENTED METHODS
 	
+	public String getURI() {
+		return null;
+	}
+	
 	public String parse() {
 		return (item.getIsId()) ? FileUtils.readFile(TEMPLATE) + NL : "";
 	}

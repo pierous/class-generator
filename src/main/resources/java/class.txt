@@ -1,4 +1,4 @@
-package es.pierous.generator.model;
+package ${package}.model.entity;
 
 import javax.persistence.*;
 

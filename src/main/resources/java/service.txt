@@ -1,0 +1,20 @@
+package ${package}.business.service;
+
+import java.util.List;
+
+import ${package}.model.entity.${entity}C;
+
+/**
+ * The Interface ${name}Service.
+ */
+public interface ${name}Service {
+	
+	/**
+	 * Busca un ${name} por su clave primaria.
+	 *
+	 * @param id clave del ${name} a recuperar
+	 * @return ${name}
+	 */
+	public ${entity}C find(Integer id);
+
+}

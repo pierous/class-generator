@@ -26,6 +26,10 @@ public class AttributeJavaParserImpl extends GenericParserImpl<Attribute> {
 
 	// IMPLEMENTED METHODS
 	
+	public String getURI() {
+		return null;
+	}
+	
 	public String parse() {
 		String result = "";
 		
